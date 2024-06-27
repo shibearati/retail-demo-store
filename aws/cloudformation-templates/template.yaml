@@ -106,13 +106,13 @@ Metadata:
       SourceDeploymentType:
         default: "Deployment Type"
       GitHubRepo:
-        default: "GitHub Repository Name (required)"
+        default: "retail-demo-store"
       GitHubBranch:
-        default: "GitHub Branch (required)"
+        default: "master"
       GitHubUser:
-        default: "GitHub Username (required)"
+        default: "shibearati"
       GitHubToken:
-        default: "GitHub Personal Access Token (optional)"
+        default: "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"
       PreIndexOpenSearch:
         default: "Auto-Load OpenSearch Index"
       PreCreatePersonalizeResources:
@@ -252,7 +252,7 @@ Parameters:
   GitHubUser:
     Type: String
     Description: If you are linking and deploying from a fork of the Retail Demo Store repository, enter your GitHub username. Otherwise, use the default of 'aws-samples' to link to the upstream repository.
-    Default: aws-samples
+    Default: shibearati
 
   GitHubToken:
     Type: String
