@@ -98,7 +98,7 @@ Metadata:
           - FenixXapiKey
     ParameterLabels:
       ResourceBucket:
-        default: "retail-store-demo-bucket1"
+        default: "retail-store-demo-bucket"
       ResourceBucketRelativePath:
         default: "Deployment Resources Staging Bucket Relative Path (optional)"
       CreateOpenSearchServiceLinkedRole:
@@ -198,7 +198,7 @@ Parameters:
     Description: >
       S3 bucket name where the Retail Demo Store deployment resources are staged (product images, nested CloudFormation templates, source code snapshot,
       notebooks, deployment Lambda code, etc).
-    Default: retail-store-demo-bucket1
+    Default: retail-store-demo-bucket
 
   ResourceBucketRelativePath:
     Type: String
