@@ -282,7 +282,7 @@ Parameters:
     AllowedValues:
       - "Yes"
       - "No"
-    Default: "Yes"
+    Default: "No"
 
   PreCreatePinpointWorkshop:
     Type: String
@@ -293,7 +293,7 @@ Parameters:
     AllowedValues:
       - "Yes"
       - "No"
-    Default: "Yes"
+    Default: "No"
 
   PinpointEmailFromAddress:
     Type: String
