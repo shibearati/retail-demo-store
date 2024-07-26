@@ -300,7 +300,7 @@ Parameters:
     Description: >
       Email address to use as Reply-To when sending emails from Pinpoint. This parameter is required when 'Auto-Configure Pinpoint'
       is set to 'Yes'.
-    Default: "Yes"
+    Default: ''
 
   PinpointEmailFromName:
     Type: String
