@@ -282,7 +282,7 @@ Parameters:
     AllowedValues:
       - "Yes"
       - "No"
-    Default: "No"
+    Default: "Yes"
 
   PreCreatePinpointWorkshop:
     Type: String
@@ -293,13 +293,14 @@ Parameters:
     AllowedValues:
       - "Yes"
       - "No"
-    Default: "No"
+    Default: "Yes"
 
   PinpointEmailFromAddress:
     Type: String
     Description: >
       Email address to use as Reply-To when sending emails from Pinpoint. This parameter is required when 'Auto-Configure Pinpoint'
       is set to 'Yes'.
+    Default: "Yes"
 
   PinpointEmailFromName:
     Type: String
