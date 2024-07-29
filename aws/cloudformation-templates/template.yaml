@@ -98,7 +98,7 @@ Metadata:
           - FenixXapiKey
     ParameterLabels:
       ResourceBucket:
-        default: retail-store-demo-bucket"
+        default: "retail-demo-store"
       ResourceBucketRelativePath:
         default: "Deployment Resources Staging Bucket Relative Path (optional)"
       CreateOpenSearchServiceLinkedRole:
@@ -108,7 +108,7 @@ Metadata:
       GitHubRepo:
         default: "retail-demo-store"
       GitHubBranch:
-        default: "master"
+        default: "Master"
       GitHubUser:
         default: "shibearati"
       GitHubToken:
@@ -254,7 +254,7 @@ Parameters:
   GitHubUser:
     Type: String
     Description: If you are linking and deploying from a fork of the Retail Demo Store repository, enter your GitHub username. Otherwise, use the default of 'aws-samples' to link to the upstream repository.
-    Default: aws-samples
+    Default: shibearati
 
   GitHubToken:
     Type: String
@@ -284,7 +284,7 @@ Parameters:
     AllowedValues:
       - "Yes"
       - "No"
-    Default: "No"
+    Default: "Yes"
 
   PreCreatePinpointWorkshop:
     Type: String
@@ -295,14 +295,14 @@ Parameters:
     AllowedValues:
       - "Yes"
       - "No"
-    Default: "No"
+    Default: "Yes"
 
   PinpointEmailFromAddress:
     Type: String
     Description: >
       Email address to use as Reply-To when sending emails from Pinpoint. This parameter is required when 'Auto-Configure Pinpoint'
       is set to 'Yes'.
-    Default: ''
+    Default: 'Yes'
 
   PinpointEmailFromName:
     Type: String
