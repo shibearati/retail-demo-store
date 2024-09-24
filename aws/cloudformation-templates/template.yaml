@@ -148,6 +148,14 @@ Parameters:
       - 'No'
     Default: 'No'
  
+  DeployRoomMakeoverDemo:
+    Type: String
+    Description: Flag to deploy the Room Makeover demo. Amazon Bedrock users need to request access to models before they are available for use.
+    AllowedValues:
+      - 'Yes'
+      - 'No'
+    Default: 'No'
+ 
   CloudfrontCustomDomain:
     Type: String
     Description : OPTIONAL only enter if you plan to use a custom domain named (linked to ACMCertificateArn)
@@ -203,3 +211,31 @@ Resources:
         ACMCertificateArn: !Ref ACMCertificateArn
         ResourceBucketImages: !Ref ResourceBucketImages
         ResourceBucketImagesPrefix: !Ref ResourceBucketImagesPrefix
+ 
+  RoomMakeover:
+    Type: AWS::CloudFormation::Stack
+    Condition: DeployRoomMakeoverStack
+    Properties:
+      TemplateURL: !Sub https://s3.amazonaws.com/${ResourceBucket}/${ResourceBucketRelativePath}cloudformation-templates/room-generator.yaml
+      Parameters:
+        LambdaVpcSecurityGroup: !GetAtt Base.Outputs.PrivateVPCSecurityGroup
+        LambdaVpcSubnets: !GetAtt Base.Outputs.Subnets
+        ResourceBucket: !Ref ResourceBucket
+        ResourceBucketRelativePath: !Ref ResourceBucketRelativePath
+        LoggingBucketName: !GetAtt Base.Outputs.LoggingBucketName
+        CleanupBucketLambdaArn: !GetAtt CleanupBucket.Outputs.LambdaFunctionArn
+        OpenSearchDomainEndpoint: !GetAtt Base.Outputs.OpenSearchDomainEndpoint
+        WebUIBucketName: !GetAtt Base.Outputs.WebUIBucketName
+        WebURL: !If
+          - ConditionCustomDomain
+          - !Sub https://${CloudfrontCustomDomain}
+          - !GetAtt Base.Outputs.WebUICDNURL
+ 
+Outputs:
+  UserPoolId:
+    Description: Authentication Cognito User Pool Id.
+    Value: !GetAtt Base.Outputs.UserPoolId
+ 
+  UserPoolClientId:
+    Description: Authentication Cognito User Pool Client Id.
+    Value: !GetAtt Base.Output
